@@ -15,7 +15,15 @@ class M_Haber extends CI_Model
 
         return $query->result();
     }
+    function get_haber_byUrl($smartUrl)
+    {
+        $this->db->where('haber_active',1);
+        $this->db->where('haber_url',$smartUrl);
+       
+        $query=$this->db->get('haberler');
 
+        return $query->result()[0];
+    }
     
 
     
