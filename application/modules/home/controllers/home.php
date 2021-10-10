@@ -20,7 +20,12 @@ class Home extends MY_Controller
         $main_page = 'front_template_v';
         $this->template->loadTemplate($main_page,$home_page);
     }
-    
+    function home_detay()
+    { 
+        $home_page = 'home/home_detay_v';
+        $main_page = 'front_template_v';
+        $this->template->loadTemplate($main_page,$home_page);
+    }
     function getAnasayfaYazi()
     {         
         $this->load->model("M_Home");

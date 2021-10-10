@@ -3,7 +3,7 @@
         <h3><?php  echo $this->home->anasayfaYazi()->anasayfa_baslik;  ?> </h3>
         <p><?php  echo ellipsize($this->home->anasayfaYazi()->anasayfa_yazi,450);  ?> </p>
         <br />    
-        <a href="" class="btn btn-primary">Devamı</a>
+        <a href="<?php base_url() ?>home/home_detay" class="btn btn-primary">Devamı</a>
         <hr />
     </div>
 </div>
