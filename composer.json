@@ -11,7 +11,7 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": "~7",
+		"php": "~5",
 		"ext-pdo_sqlite": "*"
 	},
 	"suggest": {
