@@ -102,7 +102,7 @@ $db['sqlite'] = array(
 	'username' => '',
 	'password' => '',
 	'database' => APPPATH.'database/data.db',
-	'dbdriver' => 'SQLite3',
+	'dbdriver' => 'sqlite3',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
