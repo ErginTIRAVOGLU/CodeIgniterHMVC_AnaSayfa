@@ -24,7 +24,13 @@ class M_Haber extends CI_Model
 
         return $query->result()[0];
     }
-    
+    function post_book()
+    {
+        $this->db->insert('haberler', $this->input->post());
+
+        return $this->db->insert_id();
+    }
+
 
     
     

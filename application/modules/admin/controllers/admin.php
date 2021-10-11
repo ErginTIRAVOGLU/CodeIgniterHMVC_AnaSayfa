@@ -10,9 +10,10 @@ class Admin extends MY_Controller
      
     function dashboard()
     {         
-        $data["content_view"]= 'admin/dashboard_v';        
-        $main_page = 'admin_template_v';        
-        $this->template->loadTemplate($main_page,$data);
+        $data["page_content"]= 'admin/dashboard_v';   
+        $data["main_page"]= 'admin_template_v';            
+       
+        $this->template->loadTemplate($data);
        
     }
 

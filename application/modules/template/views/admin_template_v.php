@@ -11,6 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
@@ -187,13 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Admin Panel
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link active">
@@ -209,7 +205,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="fa fa-shopping-bag nav-icon"></i>
                   <p>Anasayfa Hakkında</p></a>
               </li>
-              <li class="nav-item"><a href="#" class="nav-link">
+              <li class="nav-item"><a href="<?php echo base_url() ?>haber/haberlist" class="nav-link">
                   <i class="far fa-envelope nav-icon"></i>
                   <p>Haberler</p></a>
               </li>
@@ -231,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Bookstore</h1>
+            <h1 class="m-0">Admin</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -250,7 +246,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
              
-            <?php $this->load->view($content_view); ?>
+            <?php $this->load->view($page_content); ?>
           </div> 
           <!-- /.col-md-6 -->
         </div>

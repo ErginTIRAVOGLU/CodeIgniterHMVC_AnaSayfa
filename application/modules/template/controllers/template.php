@@ -8,11 +8,11 @@ class Template extends MY_Controller
         $this->load->module("menu");
     }
     
-    function loadTemplate($mainPage=NULL,$data=NULL)
+    function loadTemplate($data=NULL)
     {
       
         
-        $this->load->view($mainPage,$data);
+        $this->load->view($data["main_page"],$data);
     }
     
 

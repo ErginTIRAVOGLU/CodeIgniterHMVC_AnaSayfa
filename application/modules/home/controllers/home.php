@@ -16,15 +16,17 @@ class Home extends MY_Controller
     
     function index()
     { 
-        $home_page = 'home/home_v';
-        $main_page = 'front_template_v';
-        $this->template->loadTemplate($main_page,$home_page);
+        
+      
+        $data["main_page"]='front_template_v';  
+        $data["page_content"]='home/home_v';  
+        $this->template->loadTemplate($data);
     }
     function home_detay()
     { 
-        $home_page = 'home/home_detay_v';
-        $main_page = 'front_template_v';
-        $this->template->loadTemplate($main_page,$home_page);
+        $data["main_page"]='front_template_v';  
+        $data["page_content"]='home/home_detay_v';  
+        $this->template->loadTemplate($data);
     }
     function getAnasayfaYazi()
     {         
