@@ -7,10 +7,18 @@ class M_Haber extends CI_Model
         parent::__construct();
     }
 
-    function get_all_haberler()
+    function get_all_haberler( )
     {
         $this->db->where('haber_active',1);
-        $this->db->order_by('haber_order',1);
+        $this->db->order_by('haber_order');
+        $query=$this->db->get('haberler');
+
+        return $query->result();
+    }
+    function get_all_haberler_admin( )
+    {
+        
+        $this->db->order_by('haber_order');
         $query=$this->db->get('haberler');
 
         return $query->result();

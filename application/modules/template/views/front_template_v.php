@@ -52,41 +52,18 @@
   </head>
   <body>
     
-  <?php  $this->menu->createMenu();  ?>
-  <div class="container-fluid">
-<div class="row">
-  <div class="row-xs-12">
-    <div class="owl-carousel owl-theme">
-        <div class="item"><h4>1</h4></div>
-        <div class="item"><h4>2</h4></div>
-        <div class="item"><h4>3</h4></div>
-        <div class="item"><h4>4</h4></div>
-        <div class="item"><h4>5</h4></div>
-        <div class="item"><h4>6</h4></div>
-        <div class="item"><h4>7</h4></div>
-        <div class="item"><h4>8</h4></div>
-        <div class="item"><h4>9</h4></div>
-        <div class="item"><h4>10</h4></div>
-        <div class="item"><h4>11</h4></div>
-        <div class="item"><h4>12</h4></div>
-    </div>
-  </div>
-</div>
-</div>
-<main role="main" class="container">
-
- 
-     <?php $this->load->view($page_content); ?>
+    <?php  $this->menu->createMenu();  ?> 
+    <?php $this->load->view($page_content); ?>
  
 
-</main><!-- /.container
-
+ 
+    <!-- /.container
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
-      <script>window.jQuery || document.write('<script src="<?php echo base_url() ?>assets/bootstrap-4.6.0-dist/js/vendor/jquery.slim.min.js"><\/script>')</script>
-      <script src="<?php echo base_url() ?>assets/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js" ></script>
+    <script>window.jQuery || document.write('<script src="<?php echo base_url() ?>assets/bootstrap-4.6.0-dist/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="<?php echo base_url() ?>assets/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js" ></script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script> -->
     <script>window.jQuery || document.write('<script src="<?php echo base_url() ?>assets/venueassets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script src="<?php echo base_url() ?>assets/venueassets/js/vendor/bootstrap.min.js"></script>

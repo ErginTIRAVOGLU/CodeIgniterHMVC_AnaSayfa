@@ -1,5 +1,6 @@
  
     <?php  foreach ($haber as $key => $value) {
+         echo "<div class='container-fluid'>"; 
         echo "<div class='row'>"; 
             echo "<div class='col-sm-12'>";
             echo "<div class='row'>";
@@ -11,6 +12,7 @@
                 echo "</div>";
             echo "</div>";
             echo "</div>";
+        echo "</div>";
         echo "</div>";
         echo "&nbsp;<br />";
     } 

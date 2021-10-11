@@ -36,7 +36,7 @@ class Haber extends MY_Controller
     function create_haber_table()
     {
        
-        $haberler=$this->M_Haber->get_all_haberler();
+        $haberler=$this->M_Haber->get_all_haberler_admin();
         
         $haber_table="";
 
