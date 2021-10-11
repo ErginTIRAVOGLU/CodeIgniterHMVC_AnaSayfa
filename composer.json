@@ -12,8 +12,7 @@
 	},
 	"require": {
 		"php": "~7",
-		"ext-pdo_sqlite": "*",
-		"sqlite3": "*"
+		"ext-pdo_sqlite": "*"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
