@@ -5,21 +5,16 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Haber Başlık</label>
-                    <input type="text" name="haber_baslik" class="form-control">
+                    <input type="text" name="haber_baslik" class="form-control" require>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Haber İçerik</label>
-                    <textarea type="text" name="haber_icerik" class="form-control"></textarea>
+                    <textarea type="text" name="haber_icerik" class="form-control" require></textarea>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Smart Url</label>
-                    <input type="text" name="haber_smart_url" class="form-control">
-                </div>
-            </div>
+            
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Sıra</label>
@@ -35,7 +30,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Resim</label>
-                    <input type="file" name="haber_resim" class="form-control" multiple>
+                    <input type="file" name="haber_resim" class="form-control" >
                 </div>
             </div>
             <div class="col-md-12">

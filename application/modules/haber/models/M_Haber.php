@@ -24,9 +24,9 @@ class M_Haber extends CI_Model
 
         return $query->result()[0];
     }
-    function post_book()
+    function haber_ekle($haber)
     {
-        $this->db->insert('haberler', $this->input->post());
+        $this->db->insert('haberler', $haber);
 
         return $this->db->insert_id();
     }

@@ -10,7 +10,7 @@ class Haber extends MY_Controller
         $this->load->module("haber");
         $this->load->module("home");
         $this->load->helper("text");
-        
+        $this->load->model("M_Haber");
     }
     function haberYazi()
     {
@@ -35,7 +35,7 @@ class Haber extends MY_Controller
 
     function create_haber_table()
     {
-        $this->load->model("M_Haber");
+       
         $haberler=$this->M_Haber->get_all_haberler();
         
         $haber_table="";
@@ -76,7 +76,7 @@ class Haber extends MY_Controller
     }
 
     function haberListesi(){
-        $this->load->model("M_Haber");
+      
         $data["haber"]=$this->M_Haber->get_all_haberler();
         $this->load->view("haber/haber_v.php", $data);
 	 
@@ -94,61 +94,74 @@ class Haber extends MY_Controller
     }
     function haberDetay($smarturl)
     {         
-        $this->load->model("M_Haber");
+        
         $data=$this->M_Haber->get_haber_byUrl($smarturl);
         return $data;
     }
+    public static function createSlug($str, $delimiter = '-'){
+
+        $slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
+        return $slug;
+    
+    } 
+    function UrlConvertor($title){
+ 
+		$url = $this->createSlug($title);
+ 
+		return $url;
+	}
     function post_haberekle()
     {
-       
-         print_r($_POST); 
-         print_r($_FILES); 
-         $haber_baslik = $this->input->post('haber_baslik');
-         $haber_icerik = $this->input->post('haber_icerik');
-         $haber_smart_url = $this->input->post('haber_smart_url');
-         $haber_sirasi = $this->input->post('haber_sirasi');
-         $haber_aktif = $this->input->post('haber_aktif');
+        //$t=time();
+        //echo($t . "<br>");
+         //print_r($_POST); 
+         //print_r($_FILES); 
 
-        if(count($_FILES)>0)
-        {
+         $haber["haber_baslik"] = $this->input->post('haber_baslik');
+         $haber["haber_icerik"] = $this->input->post('haber_icerik');
+         $haber["haber_url"] = $this->UrlConvertor($this->input->post('haber_baslik'));
+         $haber["haber_order"] = $this->input->post('haber_sirasi');
+         $haber["haber_active"] = $this->input->post('haber_aktif');
+         $ext = pathinfo($_FILES['haber_resim']['name'], PATHINFO_EXTENSION);
+         $resim=$this->UrlConvertor($_FILES['haber_resim']['name'].time()).".".$ext;
+          $haber["haber_resim"] =   $resim;
+        
+         
+          
+         
+ 
+ 
             
 
-            $id=$this->M_Haber->haber_ekle();
+            $id=$this->M_Haber->haber_ekle($haber);
 
         
 
             $this->load->library('upload');
-            $files=$_FILES;
-            $images=count($_FILES['haber_resim']['name']);
-
-            for ($i=0; $i < $images; $i++) { 
+            /*
                 $_FILES['haber_resim']['name'] = $files['haber_resim']['name'][$i];
                 $_FILES['haber_resim']['type'] = $files['haber_resim']['type'][$i];
                 $_FILES['haber_resim']['tmp_name'] = $files['haber_resim']['tmp_name'][$i];
                 $_FILES['haber_resim']['error'] = $files['haber_resim']['error'][$i];
                 $_FILES['haber_resim']['size'] = $files['haber_resim']['size'][$i];
-            
-                $this->upload->initialize($this->set_upload_options());
+            */
+                $this->upload->initialize($this->set_upload_options($resim));
+                print_r($resim); 
+                 $this->upload->do_upload("haber_resim");
+                
 
-                if($this->upload->do_upload('haber_resim'))
-                {
-                    $error=array('error' => $this->upload->display_errors());
-                }
-                else
-                {
-                    $image_array[] = [
-                        'imagePath' => base_url() . "uploads/haberler" . $_FILES['haber_resim']['name'],
-                        'book_id' => $id,
-                    ];
-                }
-
-            }
-
-            $this->M_Haber->haber_resim_ekle($image_array);
-
-            redirect(base_url() . 'haber/haberlist');
-
-        }
+          
+           // $this->M_Haber->haber_resim_ekle($image_array);
+ 
     }
-
+    private function set_upload_options($filename)
+    {
+        $config=array();
+        $config['upload_path'] = './uploads/haberler/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '0';
+        $config['overwrite'] = FALSE;
+        $config['file_name'] = $filename;
+        return $config;     
+    }
 }
